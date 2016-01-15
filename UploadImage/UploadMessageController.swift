@@ -81,6 +81,7 @@ class UploadMessageController: UIViewController {
         if !UIImagePickerController.isCameraDeviceAvailable(.Rear) {
             
             showAlertView("请允许访问相机")
+            return
         }
         
         /// 拍照
