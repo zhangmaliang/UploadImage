@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="n36-Bs-WR2">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="6Tt-By-3TR">
+            <objects>
+                <navigationController id="n36-Bs-WR2" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ygr-rP-4uP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Xbk-h7-TB5" kind="relationship" relationship="rootViewController" id="9WX-nc-P1Z"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sDN-Xk-GdU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2754" y="-610"/>
+        </scene>
+        <!--上传资料-->
+        <scene sceneID="JlS-4b-jMJ">
+            <objects>
+                <viewController title="手机维修乐" id="Xbk-h7-TB5" userLabel="上传资料" customClass="UploadMessageController" customModule="UploadImage" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kCc-gQ-6OG"/>
+                        <viewControllerLayoutGuide type="bottom" id="hAL-Cw-JW2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SSi-Ke-hru">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6DJ-nN-8aE" userLabel="照片视图">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="222"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kNu-oe-eE1">
+                                        <rect key="frame" x="15" y="25" width="110" height="110"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i3K-hV-JZE">
+                                        <rect key="frame" x="135" y="25" width="110" height="110"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fsf-WM-B0s">
+                                        <rect key="frame" x="250" y="25" width="110" height="110"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上传手机维修单（显示维修时间)、手机损害照片或其他能证明手机损坏凭证照片等。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHE-v5-iia">
+                                        <rect key="frame" x="15" y="157" width="345" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.37936883223684209" green="0.39023951480263158" blue="0.42829975328947251" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rje-ni-FsH" customClass="UploadBtn" customModule="UploadImage" customModuleProvider="target">
+                                        <rect key="frame" x="15" y="25" width="110" height="110"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="110" id="AYT-J3-EdO"/>
+                                            <constraint firstAttribute="height" constant="110" id="QGG-c9-OX8"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="LBB_Upload切片-2"/>
+                                        <connections>
+                                            <action selector="uploadimageBtnClicked:" destination="Xbk-h7-TB5" eventType="touchUpInside" id="Yio-fH-mzi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWv-b9-pRC" customClass="UploadBtn" customModule="UploadImage" customModuleProvider="target">
+                                        <rect key="frame" x="135" y="25" width="110" height="110"/>
+                                        <state key="normal" backgroundImage="LBB_Upload切片-2"/>
+                                        <connections>
+                                            <action selector="uploadimageBtnClicked:" destination="Xbk-h7-TB5" eventType="touchUpInside" id="kGO-zZ-riG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hhf-oc-JYs" customClass="UploadBtn" customModule="UploadImage" customModuleProvider="target">
+                                        <rect key="frame" x="255" y="25" width="110" height="110"/>
+                                        <state key="normal" backgroundImage="LBB_Upload切片-2"/>
+                                        <connections>
+                                            <action selector="uploadimageBtnClicked:" destination="Xbk-h7-TB5" eventType="touchUpInside" id="uvX-H3-gSm"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Fsf-WM-B0s" firstAttribute="leading" secondItem="i3K-hV-JZE" secondAttribute="trailing" constant="11" id="0Vy-qe-isU"/>
+                                    <constraint firstItem="VWv-b9-pRC" firstAttribute="width" secondItem="rje-ni-FsH" secondAttribute="width" id="60A-fa-wqG"/>
+                                    <constraint firstAttribute="trailing" secondItem="KHE-v5-iia" secondAttribute="trailing" constant="15" id="6c9-y6-HzA"/>
+                                    <constraint firstItem="KHE-v5-iia" firstAttribute="leading" secondItem="6DJ-nN-8aE" secondAttribute="leading" constant="15" id="7of-xL-d6z"/>
+                                    <constraint firstItem="rje-ni-FsH" firstAttribute="top" secondItem="6DJ-nN-8aE" secondAttribute="top" constant="25" id="8dV-oS-WhP"/>
+                                    <constraint firstAttribute="height" constant="222" id="KqX-7n-jQ9"/>
+                                    <constraint firstItem="VWv-b9-pRC" firstAttribute="height" secondItem="rje-ni-FsH" secondAttribute="height" id="SRt-gg-hbK"/>
+                                    <constraint firstItem="KHE-v5-iia" firstAttribute="top" secondItem="Hhf-oc-JYs" secondAttribute="bottom" constant="22" id="ZCJ-Hw-RQY"/>
+                                    <constraint firstItem="Hhf-oc-JYs" firstAttribute="height" secondItem="rje-ni-FsH" secondAttribute="height" id="aAL-5A-a8R"/>
+                                    <constraint firstItem="VWv-b9-pRC" firstAttribute="top" secondItem="rje-ni-FsH" secondAttribute="top" id="f7S-gw-jqg"/>
+                                    <constraint firstItem="VWv-b9-pRC" firstAttribute="leading" secondItem="rje-ni-FsH" secondAttribute="trailing" constant="10" id="kaH-Tr-9Lc"/>
+                                    <constraint firstItem="Hhf-oc-JYs" firstAttribute="top" secondItem="rje-ni-FsH" secondAttribute="top" id="mph-sG-sYO"/>
+                                    <constraint firstItem="Hhf-oc-JYs" firstAttribute="width" secondItem="rje-ni-FsH" secondAttribute="width" id="pfi-y3-Kov"/>
+                                    <constraint firstItem="Hhf-oc-JYs" firstAttribute="leading" secondItem="VWv-b9-pRC" secondAttribute="trailing" constant="10" id="uLu-jE-vUV"/>
+                                    <constraint firstItem="rje-ni-FsH" firstAttribute="leading" secondItem="6DJ-nN-8aE" secondAttribute="leading" constant="15" id="xcH-dL-y0Y"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="kNu-oe-eE1"/>
+                                        <exclude reference="i3K-hV-JZE"/>
+                                        <exclude reference="Fsf-WM-B0s"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="0Vy-qe-isU"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="05h-Ik-CPN" userLabel="输入框视图">
+                                <rect key="frame" x="0.0" y="232" width="375" height="100"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jsk-45-jNr" userLabel="输入文字视图" customClass="PlaceholerTextView" customModule="UploadImage" customModuleProvider="target">
+                                        <rect key="frame" x="15" y="25" width="345" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="jsk-45-jNr" firstAttribute="top" secondItem="05h-Ik-CPN" secondAttribute="top" constant="25" id="Akk-1M-BWE"/>
+                                    <constraint firstAttribute="bottom" secondItem="jsk-45-jNr" secondAttribute="bottom" constant="25" id="XRU-k4-5gI"/>
+                                    <constraint firstAttribute="trailing" secondItem="jsk-45-jNr" secondAttribute="trailing" constant="15" id="bXg-mg-BVg"/>
+                                    <constraint firstItem="jsk-45-jNr" firstAttribute="leading" secondItem="05h-Ik-CPN" secondAttribute="leading" constant="15" id="esu-Vv-cmr"/>
+                                    <constraint firstAttribute="height" constant="100" id="h8N-Pb-P3N"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omO-47-CHD" userLabel="提交申请按钮">
+                                <rect key="frame" x="21" y="543" width="339" height="45"/>
+                                <color key="backgroundColor" red="0.83085766176052633" green="0.21436403503947368" blue="0.22181674885526317" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="i5Q-ff-hEP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="酱油按钮">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93445038377192968" green="0.93213747258771917" blue="0.93676329495614019" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="6DJ-nN-8aE" secondAttribute="trailing" id="4ij-FX-Q7a"/>
+                            <constraint firstAttribute="trailing" secondItem="omO-47-CHD" secondAttribute="trailing" constant="15" id="6lj-yL-CIg"/>
+                            <constraint firstItem="05h-Ik-CPN" firstAttribute="top" secondItem="6DJ-nN-8aE" secondAttribute="bottom" constant="10" id="7CZ-1q-4mb"/>
+                            <constraint firstItem="omO-47-CHD" firstAttribute="leading" secondItem="SSi-Ke-hru" secondAttribute="leading" constant="21" id="7Yj-YQ-diu"/>
+                            <constraint firstAttribute="trailing" secondItem="05h-Ik-CPN" secondAttribute="trailing" id="BEC-IF-doO"/>
+                            <constraint firstItem="6DJ-nN-8aE" firstAttribute="leading" secondItem="SSi-Ke-hru" secondAttribute="leading" id="BYO-gg-QE7"/>
+                            <constraint firstItem="hAL-Cw-JW2" firstAttribute="top" secondItem="omO-47-CHD" secondAttribute="bottom" constant="15" id="Eqk-jX-OXK"/>
+                            <constraint firstItem="6DJ-nN-8aE" firstAttribute="top" secondItem="kCc-gQ-6OG" secondAttribute="bottom" id="FBv-Zm-tAz"/>
+                            <constraint firstItem="05h-Ik-CPN" firstAttribute="leading" secondItem="SSi-Ke-hru" secondAttribute="leading" id="wtH-U4-hag"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="jLx-Hv-Hg2"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="inputTextView" destination="jsk-45-jNr" id="x5W-cy-BH3"/>
+                        <outlet property="uploadImageBtnHConstraint" destination="QGG-c9-OX8" id="nnO-NG-DLV"/>
+                        <outlet property="uploadImageBtnWConstraint" destination="AYT-J3-EdO" id="pEg-vw-RdP"/>
+                        <outletCollection property="uploadImageBtns" destination="rje-ni-FsH" collectionClass="NSMutableArray" id="b9l-BM-2TX"/>
+                        <outletCollection property="uploadImageBtns" destination="VWv-b9-pRC" collectionClass="NSMutableArray" id="E0i-uZ-L9D"/>
+                        <outletCollection property="uploadImageBtns" destination="Hhf-oc-JYs" collectionClass="NSMutableArray" id="eSf-3s-Jqn"/>
+                        <segue destination="SUu-wr-8ZU" kind="show" identifier="photoBrower" id="meb-0M-NC8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QtN-ev-bCz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2062.5" y="-665.5"/>
+        </scene>
+        <!--Photo Brower Controller-->
+        <scene sceneID="i6Y-sH-Cbe">
+            <objects>
+                <viewController id="SUu-wr-8ZU" customClass="PhotoBrowerController" customModule="UploadImage" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Iuv-dn-L7D"/>
+                        <viewControllerLayoutGuide type="bottom" id="7VX-Vg-rzs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ixt-Rx-FB2">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MHM-4x-8cS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ik5-Hr-29L">
+                                    <size key="itemSize" width="100" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCell" id="lfY-wW-43Y" customClass="PhotoBrowerCell" customModule="UploadImage" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wn2-0U-XP7">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Wn2-0U-XP7" secondAttribute="trailing" id="1UC-zc-LzT"/>
+                                            <constraint firstItem="Wn2-0U-XP7" firstAttribute="leading" secondItem="lfY-wW-43Y" secondAttribute="leading" id="DqF-HY-8NC"/>
+                                            <constraint firstAttribute="bottom" secondItem="Wn2-0U-XP7" secondAttribute="bottom" id="H7l-24-CKv"/>
+                                            <constraint firstItem="Wn2-0U-XP7" firstAttribute="top" secondItem="lfY-wW-43Y" secondAttribute="top" id="dlH-w5-fik"/>
+                                        </constraints>
+                                        <size key="customSize" width="100" height="100"/>
+                                        <connections>
+                                            <outlet property="imageView" destination="Wn2-0U-XP7" id="G3g-wQ-AdT"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="SUu-wr-8ZU" id="fFO-g1-J1x"/>
+                                    <outlet property="delegate" destination="SUu-wr-8ZU" id="K1A-xR-o15"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MHM-4x-8cS" firstAttribute="leading" secondItem="Ixt-Rx-FB2" secondAttribute="leading" id="IC4-pr-beV"/>
+                            <constraint firstItem="7VX-Vg-rzs" firstAttribute="top" secondItem="MHM-4x-8cS" secondAttribute="bottom" id="VL0-p4-H7c"/>
+                            <constraint firstAttribute="trailing" secondItem="MHM-4x-8cS" secondAttribute="trailing" id="eGh-bL-rWV"/>
+                            <constraint firstItem="MHM-4x-8cS" firstAttribute="top" secondItem="Iuv-dn-L7D" secondAttribute="bottom" id="j40-Qx-cyW"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="collectionView" destination="MHM-4x-8cS" id="9yb-Cu-cRP"/>
+                        <outlet property="layout" destination="ik5-Hr-29L" id="0AB-wW-i1P"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y1Z-p9-OmY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1632.5" y="-670.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="LBB_Upload切片-2" width="107" height="107"/>
+    </resources>
+</document>
