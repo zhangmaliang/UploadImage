@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18A57A151C49E6D90055B455 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18A57A141C49E6D90055B455 /* 1.jpg */; };
 		18EBB6901C479D8F00F6451E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EBB68F1C479D8F00F6451E /* AppDelegate.swift */; };
 		18EBB6971C479D8F00F6451E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18EBB6961C479D8F00F6451E /* Assets.xcassets */; };
 		18EBB69A1C479D8F00F6451E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18EBB6981C479D8F00F6451E /* LaunchScreen.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18A57A141C49E6D90055B455 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		18EBB68C1C479D8F00F6451E /* UploadImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UploadImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18EBB68F1C479D8F00F6451E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18EBB6961C479D8F00F6451E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				18EBB6BD1C479E1900F6451E /* UploadMessage.storyboard */,
 				18EBB6961C479D8F00F6451E /* Assets.xcassets */,
 				18EBB6981C479D8F00F6451E /* LaunchScreen.storyboard */,
+				18A57A141C49E6D90055B455 /* 1.jpg */,
 				18EBB69B1C479D8F00F6451E /* Info.plist */,
 			);
 			path = UploadImage;
@@ -233,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18EBB6BE1C479E1900F6451E /* UploadMessage.storyboard in Resources */,
+				18A57A151C49E6D90055B455 /* 1.jpg in Resources */,
 				18EBB69A1C479D8F00F6451E /* LaunchScreen.storyboard in Resources */,
 				18EBB6971C479D8F00F6451E /* Assets.xcassets in Resources */,
 			);
@@ -478,6 +482,7 @@
 				18EBB6B61C479D8F00F6451E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18EBB6B71C479D8F00F6451E /* Build configuration list for PBXNativeTarget "UploadImageTests" */ = {
 			isa = XCConfigurationList;
@@ -486,6 +491,7 @@
 				18EBB6B91C479D8F00F6451E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18EBB6BA1C479D8F00F6451E /* Build configuration list for PBXNativeTarget "UploadImageUITests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +500,7 @@
 				18EBB6BC1C479D8F00F6451E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

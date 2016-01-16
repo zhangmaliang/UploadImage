@@ -19,7 +19,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sDN-Xk-GdU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2754" y="-610"/>
+            <point key="canvasLocation" x="-3206" y="-662"/>
         </scene>
         <!--上传资料-->
         <scene sceneID="JlS-4b-jMJ">
@@ -51,7 +51,7 @@
                                         <color key="textColor" red="0.37936883223684209" green="0.39023951480263158" blue="0.42829975328947251" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rje-ni-FsH" customClass="UploadBtn" customModule="UploadImage" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rje-ni-FsH" customClass="UploadBtn" customModule="UploadImage" customModuleProvider="target">
                                         <rect key="frame" x="15" y="25" width="110" height="110"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="AYT-J3-EdO"/>
@@ -62,14 +62,14 @@
                                             <action selector="uploadimageBtnClicked:" destination="Xbk-h7-TB5" eventType="touchUpInside" id="Yio-fH-mzi"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWv-b9-pRC" customClass="UploadBtn" customModule="UploadImage" customModuleProvider="target">
+                                    <button opaque="NO" tag="1" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWv-b9-pRC" customClass="UploadBtn" customModule="UploadImage" customModuleProvider="target">
                                         <rect key="frame" x="135" y="25" width="110" height="110"/>
                                         <state key="normal" backgroundImage="LBB_Upload切片-2"/>
                                         <connections>
                                             <action selector="uploadimageBtnClicked:" destination="Xbk-h7-TB5" eventType="touchUpInside" id="kGO-zZ-riG"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hhf-oc-JYs" customClass="UploadBtn" customModule="UploadImage" customModuleProvider="target">
+                                    <button opaque="NO" tag="2" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hhf-oc-JYs" customClass="UploadBtn" customModule="UploadImage" customModuleProvider="target">
                                         <rect key="frame" x="255" y="25" width="110" height="110"/>
                                         <state key="normal" backgroundImage="LBB_Upload切片-2"/>
                                         <connections>
@@ -170,12 +170,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QtN-ev-bCz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2062.5" y="-665.5"/>
+            <point key="canvasLocation" x="-2669.5" y="-643.5"/>
         </scene>
-        <!--Photo Brower Controller-->
+        <!--图片浏览器-->
         <scene sceneID="i6Y-sH-Cbe">
             <objects>
-                <viewController id="SUu-wr-8ZU" customClass="PhotoBrowerController" customModule="UploadImage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="SUu-wr-8ZU" userLabel="图片浏览器" customClass="PhotoBrowerController" customModule="UploadImage" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Iuv-dn-L7D"/>
                         <viewControllerLayoutGuide type="bottom" id="7VX-Vg-rzs"/>
@@ -185,38 +185,52 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MHM-4x-8cS">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="-10" y="-64" width="395" height="667"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ik5-Hr-29L">
-                                    <size key="itemSize" width="100" height="100"/>
+                                    <size key="itemSize" width="148" height="172"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCell" id="lfY-wW-43Y" customClass="PhotoBrowerCell" customModule="UploadImage" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="148" height="172"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="148" height="172"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wn2-0U-XP7">
-                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                                </imageView>
+                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.5" maximumZoomScale="2" translatesAutoresizingMaskIntoConstraints="NO" id="BUv-OB-rdR" userLabel="已经删除了得">
+                                                    <rect key="frame" x="10" y="0.0" width="280" height="300"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Wn2-0U-XP7">
+                                                            <rect key="frame" x="0.0" y="0.0" width="280" height="300"/>
+                                                        </imageView>
+                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dR3-Po-m25">
+                                                            <rect key="frame" x="151" y="208" width="51" height="31"/>
+                                                        </switch>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="abe-Zb-hw5">
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <variation key="default">
+                                                        <mask key="subviews">
+                                                            <exclude reference="Wn2-0U-XP7"/>
+                                                            <exclude reference="dR3-Po-m25"/>
+                                                            <exclude reference="abe-Zb-hw5"/>
+                                                        </mask>
+                                                    </variation>
+                                                </scrollView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="Wn2-0U-XP7" secondAttribute="trailing" id="1UC-zc-LzT"/>
-                                            <constraint firstItem="Wn2-0U-XP7" firstAttribute="leading" secondItem="lfY-wW-43Y" secondAttribute="leading" id="DqF-HY-8NC"/>
-                                            <constraint firstAttribute="bottom" secondItem="Wn2-0U-XP7" secondAttribute="bottom" id="H7l-24-CKv"/>
-                                            <constraint firstItem="Wn2-0U-XP7" firstAttribute="top" secondItem="lfY-wW-43Y" secondAttribute="top" id="dlH-w5-fik"/>
-                                        </constraints>
-                                        <size key="customSize" width="100" height="100"/>
-                                        <connections>
-                                            <outlet property="imageView" destination="Wn2-0U-XP7" id="G3g-wQ-AdT"/>
-                                        </connections>
+                                        <size key="customSize" width="148" height="172"/>
+                                        <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="BUv-OB-rdR"/>
+                                            </mask>
+                                        </variation>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -224,14 +238,22 @@
                                     <outlet property="delegate" destination="SUu-wr-8ZU" id="K1A-xR-o15"/>
                                 </connections>
                             </collectionView>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5pc-He-wr6">
+                                <rect key="frame" x="117" y="363" width="51" height="31"/>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="MHM-4x-8cS" firstAttribute="leading" secondItem="Ixt-Rx-FB2" secondAttribute="leading" id="IC4-pr-beV"/>
+                            <constraint firstItem="MHM-4x-8cS" firstAttribute="leading" secondItem="Ixt-Rx-FB2" secondAttribute="leading" constant="-10" id="IC4-pr-beV"/>
                             <constraint firstItem="7VX-Vg-rzs" firstAttribute="top" secondItem="MHM-4x-8cS" secondAttribute="bottom" id="VL0-p4-H7c"/>
-                            <constraint firstAttribute="trailing" secondItem="MHM-4x-8cS" secondAttribute="trailing" id="eGh-bL-rWV"/>
-                            <constraint firstItem="MHM-4x-8cS" firstAttribute="top" secondItem="Iuv-dn-L7D" secondAttribute="bottom" id="j40-Qx-cyW"/>
+                            <constraint firstAttribute="trailing" secondItem="MHM-4x-8cS" secondAttribute="trailing" constant="-10" id="eGh-bL-rWV"/>
+                            <constraint firstItem="MHM-4x-8cS" firstAttribute="top" secondItem="Iuv-dn-L7D" secondAttribute="bottom" constant="-64" id="j40-Qx-cyW"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="5pc-He-wr6"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -241,10 +263,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y1Z-p9-OmY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1632.5" y="-670.5"/>
+            <point key="canvasLocation" x="-2212.5" y="-809.5"/>
         </scene>
     </scenes>
     <resources>
+        <image name="1.jpg" width="600" height="861"/>
         <image name="LBB_Upload切片-2" width="107" height="107"/>
     </resources>
 </document>

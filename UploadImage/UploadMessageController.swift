@@ -28,7 +28,7 @@ class UploadMessageController: UIViewController {
     }()
     
     
-    // MARK: -程序入口
+    // MARK: - 程序入口
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -93,7 +93,7 @@ class UploadMessageController: UIViewController {
         
         picker.delegate = self
         picker.sourceType = .Camera
-        picker.allowsEditing = true
+//        picker.allowsEditing = true   // 设置了也不能编辑图片
         
         // 弹出拍照控制器时出现Snapshotting a view that has not been rendered results in an empty snapshot. Ensure your view has been rendered at least once before snapshotting or snapshot after screen updates.
         // 不知道如何解决？？？？ who know，tell me！！！！
