@@ -125,35 +125,29 @@
                                     <constraint firstAttribute="height" constant="100" id="h8N-Pb-P3N"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omO-47-CHD" userLabel="提交申请按钮">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omO-47-CHD" userLabel="提交申请按钮" customClass="UploadBtn" customModule="UploadImage" customModuleProvider="target">
                                 <rect key="frame" x="21" y="543" width="339" height="45"/>
                                 <color key="backgroundColor" red="0.83085766176052633" green="0.21436403503947368" blue="0.22181674885526317" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="i5Q-ff-hEP"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="酱油按钮">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93445038377192968" green="0.93213747258771917" blue="0.93676329495614019" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="6DJ-nN-8aE" secondAttribute="trailing" id="4ij-FX-Q7a"/>
-                            <constraint firstAttribute="trailing" secondItem="omO-47-CHD" secondAttribute="trailing" constant="15" id="6lj-yL-CIg"/>
                             <constraint firstItem="05h-Ik-CPN" firstAttribute="top" secondItem="6DJ-nN-8aE" secondAttribute="bottom" constant="10" id="7CZ-1q-4mb"/>
-                            <constraint firstItem="omO-47-CHD" firstAttribute="leading" secondItem="SSi-Ke-hru" secondAttribute="leading" constant="21" id="7Yj-YQ-diu"/>
                             <constraint firstAttribute="trailing" secondItem="05h-Ik-CPN" secondAttribute="trailing" id="BEC-IF-doO"/>
                             <constraint firstItem="6DJ-nN-8aE" firstAttribute="leading" secondItem="SSi-Ke-hru" secondAttribute="leading" id="BYO-gg-QE7"/>
-                            <constraint firstItem="hAL-Cw-JW2" firstAttribute="top" secondItem="omO-47-CHD" secondAttribute="bottom" constant="15" id="Eqk-jX-OXK"/>
                             <constraint firstItem="6DJ-nN-8aE" firstAttribute="top" secondItem="kCc-gQ-6OG" secondAttribute="bottom" id="FBv-Zm-tAz"/>
                             <constraint firstItem="05h-Ik-CPN" firstAttribute="leading" secondItem="SSi-Ke-hru" secondAttribute="leading" id="wtH-U4-hag"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="omO-47-CHD"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="jLx-Hv-Hg2"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
@@ -170,7 +164,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QtN-ev-bCz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2669.5" y="-643.5"/>
+            <point key="canvasLocation" x="-2621.5" y="-671.5"/>
         </scene>
         <!--图片浏览器-->
         <scene sceneID="i6Y-sH-Cbe">
@@ -181,10 +175,10 @@
                         <viewControllerLayoutGuide type="bottom" id="7VX-Vg-rzs"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ixt-Rx-FB2">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MHM-4x-8cS">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MHM-4x-8cS">
                                 <rect key="frame" x="-10" y="-64" width="395" height="667"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ik5-Hr-29L">
                                     <size key="itemSize" width="148" height="172"/>
@@ -255,6 +249,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="collectionView" destination="MHM-4x-8cS" id="9yb-Cu-cRP"/>
@@ -263,7 +258,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y1Z-p9-OmY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2212.5" y="-809.5"/>
+            <point key="canvasLocation" x="-2102.5" y="-679.5"/>
         </scene>
     </scenes>
     <resources>

@@ -32,7 +32,6 @@ class PhotoBrowerController: UIViewController {
     
     func setupCollectionView() {
         
-        // 惨惨惨，OC不用加，swift必须加，否则cell上面留一段空白，找了哥好久原因
         self.automaticallyAdjustsScrollViewInsets = false
         
         layout.itemSize = collectionView.bounds.size
@@ -103,17 +102,6 @@ extension PhotoBrowerController: UICollectionViewDataSource,UICollectionViewDele
         return cell
     }
     
-    // cell刚刚淡出屏幕时调用(清空刚刚那张被放大了的图片的比例、位置等)
-    func collectionView(collectionView: UICollectionView, didEndDisplayingCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        
-        let photoCell = cell as! PhotoBrowerCell
-        
-        // 删除图片reloadData时会调用该方法，此时数组元素可能比indexPath.item小，需要过滤
-        if images?.count > indexPath.item {
-            photoCell.image = images![indexPath.item]
-        }
-    }
-    
     func scrollViewDidScroll(scrollView: UIScrollView) {
 
         let kCollectionViewW = collectionView.frame.size.width;
@@ -148,12 +136,6 @@ class PhotoBrowerCell: UICollectionViewCell,UIScrollViewDelegate {
     /// 点击了图片闭包
     var clickedImageClosure: (()->())?
     
-    var scrollView: UIScrollView?
-    
-    var imageView: UIImageView?
-    
-    var isShortImage: Bool = false   // 短图还是长图
-    
     var image: UIImage? {
         didSet{
             if image != nil {
@@ -162,43 +144,43 @@ class PhotoBrowerCell: UICollectionViewCell,UIScrollViewDelegate {
         }
     }
     
-    /// scrollView和collectionView前后两端的间距，在sb中查看可知collectionView的宽度前后分别超出
-    /// 屏幕10个点，而cell的size与collectionView一致，于是scrollView位于cell正中间，前后相差分别为10
-    private let margin: CGFloat = 10
-    
     func setupImageView(image: UIImage) {
+        //  这个要重新设置为初始未放大状态，很重要
+        scrollView?.zoomScale = 1.0
         
-        // 0. 将 scrollView 的滚动参数重置
-//        scrollView?.contentOffset = CGPointZero
-        scrollView?.contentSize = CGSizeZero
-//        scrollView?.contentInset = UIEdgeInsetsZero
-        
-        // 1. 准备参数
         let imageSize = image.size
-        let scrollViewSize = CGRectMake(margin, 0, self.bounds.width - 2 * margin, self.bounds.height)
+        let screenSize = UIScreen.mainScreen().bounds.size
         
-        // 2. 按照宽度进行缩放，目标宽度 screenSize.width
-        let h = scrollViewSize.width / imageSize.width * imageSize.height
+        // 2. 按照宽度进行缩放，得到图片按照屏幕比例缩放 到 屏幕宽度后的高度
+        let h = screenSize.width / imageSize.width * imageSize.height
         
-        // 直接设置看结果
-        let rect = CGRectMake(0, 0, scrollViewSize.width, h)
+        let rect = CGRectMake(0, 0, screenSize.width, h)
         imageView!.frame = rect
         imageView!.image = image
+        scrollView!.frame = CGRectMake(margin, 0, self.bounds.width - 2 * margin, self.bounds.height)
+
+        scrollView!.contentSize = rect.size
+
+        adjustImageViewFrame()
+    }
+    
+    /// 调节图片在scrollView中的位置
+    func adjustImageViewFrame() {
         
-        // 区分长图和短图
-        if rect.size.height > scrollViewSize.height {
-            // 设置滚动区域
-            scrollView!.contentSize = rect.size
+        let imageH = imageView!.frame.height
+        let scrollH = scrollView!.frame.height
+        
+        if scrollH < imageH {   // 长图
+            imageView?.frame.origin.y = 0;
             
-        } else {
-            isShortImage = true
-            
-            // 需要垂直居中，设置 inset
-            let y = (scrollViewSize.height - h) * 0.5
-            scrollView?.contentInset = UIEdgeInsetsMake(y, 0, 0, 0)
+        }else {// 短图,需要垂直居中
+            imageView?.frame.origin.y = (scrollH - imageH) * 0.5;
         }
     }
     
+    
+    var scrollView: UIScrollView?
+    var imageView: UIImageView?
     
     override func awakeFromNib() {
         
@@ -208,7 +190,6 @@ class PhotoBrowerCell: UICollectionViewCell,UIScrollViewDelegate {
         scrollView!.minimumZoomScale = 1.0
         scrollView!.delegate = self
         
-        // 图像视图，大小取决于传递的图像
         imageView = UIImageView()
         scrollView!.addSubview(imageView!)
         
@@ -224,29 +205,17 @@ class PhotoBrowerCell: UICollectionViewCell,UIScrollViewDelegate {
         }
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        scrollView!.frame = CGRectMake(margin, 0, self.bounds.width - 2 * margin, self.bounds.height)
-    }
-  
+    /// scrollView和collectionView前后两端的间距，在sb中查看可知collectionView的宽度前后分别超出
+    /// 屏幕10个点，而cell的size与collectionView一致，于是scrollView位于cell正中间，前后相差分别为10
+    // 不能改变此值，因为约束在sb中间
+    private let margin: CGFloat = 10
     
     // MARK: 图片缩放代理方法
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
         return imageView
     }
-
     
-    func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat) {
-
-        if isShortImage == false {
-            return
-        }
-        
-        let y = (frame.size.height - imageView!.frame.size.height) * 0.5
-        scrollView.contentInset = UIEdgeInsetsMake(y, 0, 0, 0)
-        
-        print(imageView?.frame)
-        print(imageView?.bounds)
+    func scrollViewDidZoom(scrollView: UIScrollView) {
+        adjustImageViewFrame()
     }
 }

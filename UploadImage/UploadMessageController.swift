@@ -68,9 +68,10 @@ class UploadMessageController: UIViewController {
         }
     }
 
-    
     /// 上传头像按钮被点击
     @IBAction func uploadimageBtnClicked(btn: UploadBtn) {
+        
+        selectBtn = btn
         
         if btn.hasUploadImage { // 该按钮已经上传过图片，跳到图片浏览页面
             
@@ -78,46 +79,8 @@ class UploadMessageController: UIViewController {
             return
         }
         
-        if !UIImagePickerController.isCameraDeviceAvailable(.Rear) {
-            
-            showAlertView("请允许访问相机")
-            return
-        }
-        
-        /// 拍照
-        let picker = UIImagePickerController()
-        
-        selectBtn = btn
-//        objc_setAssociatedObject(picker, associatedUploadBtnKey, btn, .OBJC_ASSOCIATION_RETAIN)
-        
-        
-        picker.delegate = self
-        picker.sourceType = .Camera
-//        picker.allowsEditing = true   // 设置了也不能编辑图片
-        
-        // 弹出拍照控制器时出现Snapshotting a view that has not been rendered results in an empty snapshot. Ensure your view has been rendered at least once before snapshotting or snapshot after screen updates.
-        // 不知道如何解决？？？？ who know，tell me！！！！
-        presentViewController(picker, animated: true, completion: nil)
-    }
-    
-    /// sb控制器跳转segue方法
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        if segue.destinationViewController.isKindOfClass(PhotoBrowerController) {
-            
-            let photoBrower = segue.destinationViewController as! PhotoBrowerController
-            
-            // OC中，这里控制器PhotoBrowerController和本身控制器数组属性均指向一个数组对象，一改俱改。要的就是这个效果
-            // 而swift中不同，看起来也是指向同一个数组，但是不会一改俱改，不知道为嘛？？？
-            photoBrower.images = uploadImages
-            
-            // OC中不必加此闭包回调
-            photoBrower.deleteImageClosure = { (index: Int)->() in
-                self.uploadImages!.removeAtIndex(index)
-            }
-        
-            photoBrower.currentIndex = sender as! Int
-        }
+        // 选择拍照或者从相册中选择
+        showSelectionTypeAlertView()
     }
     
     
@@ -125,6 +88,26 @@ class UploadMessageController: UIViewController {
     private var selectBtn: UploadBtn?
     private let associatedUploadBtnKey = "associatedUploadBtnKey"
     
+    
+    /// 选择拍照还是相册
+    func showSelectionTypeAlertView() {
+        
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .ActionSheet)
+        
+        let photo = UIAlertAction(title: "相册", style: .Destructive) { (handler) -> Void in
+            self.photo()
+        }
+        
+        let camera = UIAlertAction(title: "拍照", style: .Destructive) { (handler) -> Void in
+            self.camera()
+        }
+        
+        alert.addAction(photo)
+        
+        alert.addAction(camera)
+
+        presentViewController(alert, animated: true, completion: nil)
+    }
     
     /// 弹框提示
     func showAlertView(title: String?) {
@@ -140,6 +123,66 @@ class UploadMessageController: UIViewController {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         inputTextView.resignFirstResponder()
+    }
+    
+    /// 拍照
+    func camera() {
+        
+        if !UIImagePickerController.isCameraDeviceAvailable(.Rear) {
+            
+            showAlertView("请允许访问相机")
+            return
+        }
+        
+        /// 拍照
+        let picker = UIImagePickerController()
+        
+        // objc_setAssociatedObject(picker, associatedUploadBtnKey, btn, .OBJC_ASSOCIATION_RETAIN)
+        
+        picker.delegate = self
+        picker.sourceType = .Camera
+        picker.allowsEditing = true
+        
+        // 弹出拍照控制器时出现Snapshotting a view that has not been rendered results in an empty snapshot. Ensure your view has been rendered at least once before snapshotting or snapshot after screen updates.
+        // 不知道如何解决？？？？ who know，tell me！！！！
+        presentViewController(picker, animated: true, completion: nil)
+    }
+    
+    /// 从相册中选择图片
+    func photo() {
+        if !UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
+            
+            showAlertView("请允许访问相册")
+            return
+        }
+        
+        /// 拍照
+        let picker = UIImagePickerController()
+        
+        picker.delegate = self
+        picker.sourceType = .PhotoLibrary
+        
+        presentViewController(picker, animated: true, completion: nil)
+    }
+    
+    /// sb控制器跳转segue方法
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.destinationViewController.isKindOfClass(PhotoBrowerController) {
+            
+            let photoBrower = segue.destinationViewController as! PhotoBrowerController
+            
+            // OC中，这里控制器PhotoBrowerController和本身控制器数组属性均指向一个数组对象，一改俱改。要的就是这个效果
+            // 而swift中不同，默认会拷贝一个数组，从打印两个数组的地址可看出
+            photoBrower.images = uploadImages
+            
+            // OC中不必加此闭包回调
+            photoBrower.deleteImageClosure = { (index: Int)->() in
+                self.uploadImages!.removeAtIndex(index)
+            }
+            
+            photoBrower.currentIndex = sender as! Int
+        }
     }
 }
 
