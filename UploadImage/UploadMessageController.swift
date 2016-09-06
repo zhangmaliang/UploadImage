@@ -102,9 +102,13 @@ class UploadMessageController: UIViewController {
             self.camera()
         }
         
+        let cancle = UIAlertAction(title: "取消", style: .Cancel, handler: nil)
+        
         alert.addAction(photo)
         
         alert.addAction(camera)
+        
+        alert.addAction(cancle)
 
         presentViewController(alert, animated: true, completion: nil)
     }
